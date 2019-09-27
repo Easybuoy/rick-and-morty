@@ -5,10 +5,11 @@ import { withApollo } from "react-apollo";
 const GET_CHARACTERS = gql`
   query getCharacters {
     characters {
-      thumbnail
-      description
-      name
-      id
+      results {
+        id
+        name
+        image
+      }
     }
   }
 `;
@@ -18,7 +19,7 @@ function CharacterWithHOC({ client }) {
 
   client
     .query({ query: GET_CHARACTERS })
-    .then(res => setCharacters(res.data.characters))
+    .then(res => setCharacters(res.data.characters.results))
     .catch(err => console.log(err));
 
   if (characters.length > 0) {
@@ -26,7 +27,7 @@ function CharacterWithHOC({ client }) {
       <div className="characters">
         {characters.map(character => (
           <div key={character.name} className="character">
-            <img src={character.thumbnail} alt={character.name} />
+            <img src={character.image} alt={character.name} />
             <p>{character.name}</p>
           </div>
         ))}

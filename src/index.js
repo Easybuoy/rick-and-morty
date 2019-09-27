@@ -7,7 +7,7 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
 const client = new ApolloClient({
-  uri: "https://api.marvelql.com/"
+  uri: "https://rickandmortyapi.com/graphql/"
 });
 
 ReactDOM.render(

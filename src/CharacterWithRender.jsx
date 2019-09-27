@@ -5,10 +5,11 @@ import { gql } from "apollo-boost";
 const GET_CHARACTERS = gql`
   query getCharacters {
     characters {
-      thumbnail
-      description
-      name
-      id
+      results {
+        id
+        name
+        image
+      }
     }
   }
 `;
@@ -22,9 +23,9 @@ export default function CharacterWithRender() {
 
         return (
           <div className="characters">
-            {data.characters.map(character => (
+            {data.characters.results.map(character => (
               <div key={character.name} className="character">
-                <img src={character.thumbnail} alt={character.name} />
+                <img src={character.image} alt={character.name} />
                 <p>{character.name}</p>
               </div>
             ))}

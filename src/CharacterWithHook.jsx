@@ -5,10 +5,11 @@ import { useQuery } from "react-apollo";
 const GET_CHARACTERS = gql`
   query getCharacters {
     characters {
-      thumbnail
-      description
-      name
-      id
+      results {
+        id
+        name
+        image
+      }
     }
   }
 `;
@@ -27,12 +28,12 @@ function CharacterWithHOC() {
     );
   }
   if (data) {
-    if (data.characters.length > 0) {
+    if (data.characters.results.length > 0) {
       return (
         <div className="characters">
-          {data.characters.map(character => (
+          {data.characters.results.map(character => (
             <div key={character.name} className="character">
-              <img src={character.thumbnail} alt={character.name} />
+              <img src={character.image} alt={character.name} />
               <p>{character.name}</p>
             </div>
           ))}
