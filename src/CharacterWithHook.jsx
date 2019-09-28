@@ -14,7 +14,7 @@ const GET_CHARACTERS = gql`
   }
 `;
 
-function CharacterWithHOC() {
+function CharacterWithHook() {
   const { loading, error, data } = useQuery(GET_CHARACTERS);
   if (error) {
     return <div>Error</div>;
@@ -43,4 +43,4 @@ function CharacterWithHOC() {
   }
 }
 
-export default CharacterWithHOC;
+export default CharacterWithHook;
