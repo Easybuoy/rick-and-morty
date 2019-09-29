@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-// import CharacterWithHOC from "./CharacterWithHOC";
+import CharacterWithHOC from "./CharacterWithHOC";
 // import CharacterWithHook from './CharacterWithHook'; 
 // import CharacterWithRender from './CharacterWithRender';
 // import MutationWithHOC from './MutationWithHOC';
 // import MutationWithHook from './MutationWithHook';
-import MutationWithRender from './MutationWithRender';
+// import MutationWithRender from './MutationWithRender';
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
       <h1>Characters</h1>
       {/* <MutationWithHOC /> */}
       {/* <MutationWithHook /> */}
-      <MutationWithRender />
-      {/* <CharacterWithHOC /> */}
+      {/* <MutationWithRender /> */}
+      <CharacterWithHOC />
       {/* <CharacterWithHook /> */}
       {/* <CharacterWithRender /> */}
     </div>
